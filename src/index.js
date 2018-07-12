@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/user/:name/', (req, res) => {
-  res.send("Hello there, " + req.params.name);
+  res.render('userpage.html', {username: req.params.name});
 });
 
 app.listen(8000, () => console.log('App running on port 8000'));
