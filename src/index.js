@@ -1,8 +1,14 @@
 const express = require('express');
+const nunjucks = require('nunjucks');
 const app = express();
 
+nunjucks.configure('templates', {
+  autoescape: true,
+  express: app
+});
+
 app.get('/', (req, res) => {
-  res.send('Fighting Calculators');
+  res.render('index.html');
 });
 
 app.get('/user/:name/', (req, res) => {
