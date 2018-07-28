@@ -1,11 +1,19 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>{% block title %}{% endblock %} | Fighting Calculators</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <h1>Header</h1>
-  {% block content %}
-  {% endblock %}
-  <h1>Footer</h1>
+  <div class="wrapper">
+    {% include "header.html" %}
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    {% include "footer.html" %}
+  </div>
 </body>
 </html>

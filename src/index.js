@@ -7,6 +7,8 @@ nunjucks.configure('src/templates', {
   express: app
 });
 
+app.use('/static', express.static('static'));
+
 app.get('/', (req, res) => {
   res.render('index.html');
 });
@@ -16,4 +18,3 @@ app.get('/user/:name/', (req, res) => {
 });
 
 app.listen(8000, () => console.log('App running on port 8000'));
-

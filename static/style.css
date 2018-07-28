@@ -1,0 +1,113 @@
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #fafaff;
+}
+
+a {
+  color: #03446b;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  border-bottom: 1px solid #03446b;
+}
+
+header .logo {
+  display: inline-block;
+  height: 140px;
+}
+
+header h1 {
+  display: inline-block;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 60px;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #03446b;
+}
+
+header .title > * {
+  vertical-align: middle;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+header li {
+  display: inline-block;
+}
+
+header li a {
+  display: block;
+  font-size: 28px;
+  font-family: "Roboto Slab", sans-serif;
+  padding: 8px 14px;
+}
+
+header nav {
+  text-align: right;
+}
+
+main {
+  padding: 1em 0;
+}
+
+main p {
+  line-height: 1.4em;
+}
+
+.one-column .column {
+  max-width: 625px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.multi-column {
+  display: flex;
+  align-items: flex-start;
+}
+
+.multi-column .column {
+  padding: 0 10px;
+}
+
+main img {
+  max-width: 100%;
+}
+
+footer {
+  border-top: 1px solid #03446b;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+footer li {
+  display: inline-block;
+}
+
+footer li:not(:first-of-type)::before {
+  content: "\2022";
+  padding: 8px 14px;
+}
