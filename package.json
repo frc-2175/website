@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "watch": "nodemon src/index.js"
+    "watch": "nodemon -w src -e js,html src/index.js"
   }
 }
