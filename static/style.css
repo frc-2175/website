@@ -87,7 +87,7 @@ main p {
   padding: 0 10px;
 }
 
-main img {
+.featured {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
