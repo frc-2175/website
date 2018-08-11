@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Roboto, sans-serif;
   background-color: #fafaff;
@@ -22,6 +26,14 @@ h1, h2, h3, h4, h5, h6 {
 header {
   border-bottom: 1px solid #03446b;
   margin-top: 20px;
+  padding-bottom: 15px;
+  display: flex;
+}
+
+header .not-the-logo {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
 }
 
 header .logo {
@@ -43,14 +55,19 @@ header .title > * {
   vertical-align: middle;
 }
 
-header ul {
+header nav ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-header li {
+header .outer > li {
   display: inline-block;
+  position: relative;
+}
+
+header .outer > li:hover .nested {
+  display: block;
 }
 
 header li a {
@@ -58,6 +75,18 @@ header li a {
   font-size: 28px;
   font-family: "Roboto Slab", sans-serif;
   padding: 8px 14px;
+}
+
+header .nested {
+  position: absolute;
+  background-color: #e5e5ea;
+  right: 0;
+  display: none;
+}
+
+header .nested li a {
+  font-size: 20px;
+  white-space: nowrap;
 }
 
 header nav {
@@ -72,7 +101,14 @@ main p {
   line-height: 1.4em;
 }
 
-.one-column .column {
+main img {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.narrow-column {
   max-width: 625px;
   margin-left: auto;
   margin-right: auto;
@@ -85,14 +121,14 @@ main p {
 
 .multi-column .column {
   padding: 0 10px;
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
-.featured {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+.multi-column .column.span2 {
+  flex-grow: 2;
 }
+
 
 footer {
   border-top: 1px solid #03446b;
