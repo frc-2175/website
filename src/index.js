@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
-app.get('/sponsors.html', (req, res) => {
+app.get('/sponsors', (req, res) => {
   res.render('sponsors.html');
 });
 
