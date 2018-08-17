@@ -1,0 +1,3 @@
+18.222.80.121:80
+root /home/ubuntu/website
+proxy / localhost:8000
