@@ -1,0 +1,8 @@
+[Unit]
+Description=it runs the website
+
+[Service]
+ExecStart=/usr/bin/yarn --cwd /home/ubuntu/website run start
+
+[Install]
+WantedBy=multi-user.target

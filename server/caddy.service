@@ -1,0 +1,8 @@
+[Unit]
+Description=it runs caddy
+
+[Service]
+ExecStart=/usr/local/bin/caddy -conf /home/ubuntu/website/Caddyfile
+
+[Install]
+WantedBy=multi-user.target

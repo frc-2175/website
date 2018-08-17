@@ -14,3 +14,10 @@ cd /home/ubuntu
 git clone https://github.com/frc-2175/website
 cd website
 yarn install
+
+# Set up services
+sudo cp server/caddy.service /lib/systemd/system/
+sudo cp server/website.service /lib/systemd/system/
+sudo systemctl enable caddy
+sudo systemctl enable website
+sudo reboot
