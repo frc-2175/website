@@ -16,6 +16,10 @@ main a {
   text-decoration: underline;
 }
 
+main a:hover { 
+  color: red;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Slab", sans-serif;
 }
@@ -55,6 +59,10 @@ header h1 {
   color: #03446b;
 }
 
+header h1:hover {
+  filter: brightness(120%);
+}
+
 header .title > * {
   vertical-align: middle;
 }
@@ -79,6 +87,10 @@ header li a {
   font-size: 28px;
   font-family: "Roboto Slab", sans-serif;
   padding: 8px 14px;
+}
+
+header ul li:hover {
+  background-color: darkgray;
 }
 
 header .nested {
@@ -152,6 +164,10 @@ footer ul {
 
 footer li {
   display: inline-block;
+}
+
+footer ul li a:hover {
+  color: red;
 }
 
 footer li:not(:first-of-type)::before {
