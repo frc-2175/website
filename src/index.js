@@ -17,4 +17,12 @@ app.get('/sponsors', (req, res) => {
   res.render('sponsors.html');
 });
 
+app.get('/register', (req, res) => {
+  res.render('register.html')
+});
+
+app.get('/team-organization', (req, res) => {
+  res.render('team-organization.html')
+});
+
 app.listen(8000, () => console.log('App running on port 8000'));
