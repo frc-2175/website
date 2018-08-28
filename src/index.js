@@ -29,4 +29,8 @@ app.get('/team-organization/build', (req, res) => {
   res.render('subteams/build.html');
 })
 
+app.get('/team-organization/CAD', (req, res) => {
+  res.render('subteams/CAD.html');
+})
+
 app.listen(8000, () => console.log('App running on port 8000'));
