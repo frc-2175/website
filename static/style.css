@@ -183,3 +183,19 @@ footer li:not(:first-of-type)::before {
   text-align: center; 
   margin-bottom: 10px;
 }
+
+.indent p {
+  text-indent: 2em;
+}
+
+.IconAndLink a {
+ float: left;
+}
+
+.IconAndLink img {
+  margin-right: 5px;
+}
+
+.IndentIconAndLink img {
+  margin-left: 18px;
+}
