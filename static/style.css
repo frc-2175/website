@@ -21,6 +21,10 @@ main a:hover {
   color: red;
 }
 
+br {
+  line-height: 150%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Slab", sans-serif;
 }
@@ -142,6 +146,11 @@ main img {
   flex-basis: 0;
 }
 
+.multi-column-with-picture p {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .multi-column .column.span2 {
   flex-grow: 2;
 }
@@ -188,14 +197,14 @@ footer li:not(:first-of-type)::before {
   text-indent: 2em;
 }
 
-.IconAndLink a {
+.icon-and-link a {
  float: left;
 }
 
-.IconAndLink img {
+.icon-and-link img {
   margin-right: 5px;
 }
 
-.IndentIconAndLink img {
+.indent-icon-and-link img {
   margin-left: 18px;
 }
