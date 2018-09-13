@@ -3,6 +3,8 @@ Description=it runs the website
 
 [Service]
 ExecStart=/usr/bin/yarn --cwd /home/ubuntu/website run start
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
