@@ -1,3 +1,4 @@
 fightingcalculators.org
 root /home/ubuntu/website
 proxy / localhost:8000
+redir www.fightingcalculators.org fightingcalculators.org/{path}
