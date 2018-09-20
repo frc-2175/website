@@ -7,5 +7,6 @@ sudo git pull
 yarn install
 sudo cp server/caddy.service /lib/systemd/system/
 sudo cp server/website.service /lib/systemd/system/
+sudo systemctl daemon-reload
 sudo systemctl start website
 sudo systemctl start caddy
