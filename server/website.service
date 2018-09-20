@@ -5,6 +5,7 @@ Description=it runs the website
 ExecStart=/usr/bin/yarn --cwd /home/ubuntu/website run start
 Restart=on-failure
 RestartSec=5
+Environment=NODE_ENV=production
 
 [Install]
 WantedBy=multi-user.target
