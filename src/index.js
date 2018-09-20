@@ -37,4 +37,4 @@ app.get('/team-organization/scouting-and-strategy', (req, res) => {
   res.render('subteams/scouting-and-strategy.html');
 })
 
-app.listen(8000, () => console.log('App running on port 8000'));
+app.listen(8000, () => console.log(`App running on port 8000 in ${app.get('env')} mode`));
