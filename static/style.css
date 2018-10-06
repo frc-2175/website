@@ -10,10 +10,19 @@ body {
 a {
   color: #03446b;
   text-decoration: none;
+  display: inline-block;
 }
 
 main a {
   text-decoration: underline;
+}
+
+main a:hover { 
+  color: red;
+}
+
+br {
+  line-height: 150%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,9 +59,13 @@ header h1 {
   font-family: "Roboto Slab", sans-serif;
   font-size: 60px;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-left: 20px;
   color: #03446b;
+}
+
+header h1:hover {
+  filter: brightness(120%);
 }
 
 header .title > * {
@@ -63,6 +76,20 @@ header nav ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  text-align: right;
+}
+
+header .disclaimer h2 {
+  text-align: center;
+  display: block;
+  position: relative;
+  font-size: 20px;
+  color: darkorange;
+  animation: blink 2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { color: #FDE541; }
 }
 
 header .outer > li {
@@ -81,6 +108,10 @@ header li a {
   padding: 8px 14px;
 }
 
+header ul li:hover {
+  background-color: darkgray;
+}
+
 header .nested {
   position: absolute;
   background-color: #e5e5ea;
@@ -91,10 +122,6 @@ header .nested {
 header .nested li a {
   font-size: 20px;
   white-space: nowrap;
-}
-
-header nav {
-  text-align: right;
 }
 
 main {
@@ -129,6 +156,11 @@ main img {
   flex-basis: 0;
 }
 
+.multi-column-with-picture p {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .multi-column .column.span2 {
   flex-grow: 2;
 }
@@ -154,6 +186,10 @@ footer li {
   display: inline-block;
 }
 
+footer ul li a:hover {
+  color: red;
+}
+
 footer li:not(:first-of-type)::before {
   content: "\2022";
   padding: 8px 14px;
@@ -165,4 +201,20 @@ footer li:not(:first-of-type)::before {
   overflow: hidden;
   text-align: center; 
   margin-bottom: 10px;
+}
+
+.indent p {
+  text-indent: 2em;
+}
+
+.icon-and-link a {
+ float: left;
+}
+
+.icon-and-link img {
+  margin-right: 5px;
+}
+
+.indent-icon-and-link img {
+  margin-left: 18px;
 }

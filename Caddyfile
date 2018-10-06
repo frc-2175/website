@@ -1,3 +1,8 @@
-18.222.80.121:80
-root /home/ubuntu/website
-proxy / localhost:8000
+fightingcalculators.org {
+  root /home/ubuntu/website
+  proxy / localhost:8000
+}
+
+www.fightingcalculators.org {
+  redir https://fightingcalculators.org{uri}
+}
