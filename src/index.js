@@ -37,6 +37,10 @@ app.get('/team-organization/CAD', (req, res) => {
   res.render('subteams/CAD.html');
 })
 
+app.get('/team-organization/electronics', (req, res) => {
+  res.render('subteams/electronics.html');
+})
+
 app.get('/team-organization/scouting-and-strategy', (req, res) => {
   res.render('subteams/scouting-and-strategy.html');
 })
