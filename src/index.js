@@ -25,6 +25,10 @@ app.get('/team-organization', (req, res) => {
   res.render('team-organization.html');
 });
 
+app.get('/team-organization/awards', (req, res) => {
+  res.render('subteams/awards.html');
+})
+
 app.get('/team-organization/build', (req, res) => {
   res.render('subteams/build.html');
 })
