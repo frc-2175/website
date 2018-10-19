@@ -219,3 +219,8 @@ footer li:not(:first-of-type)::before {
 .indent-icon-and-link img {
   margin-left: 18px;
 }
+
+.past_robots img {
+    width: 600px;
+	margin-bottom: 30px
+}

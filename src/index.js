@@ -49,4 +49,8 @@ app.get('/team-history', (req, res) => {
   res.render('team-history.html');
 });
 
+app.get('/past_robots', (req, res) => { 
+  res.render('past_robots.html'); 
+});
+
 app.listen(8000, () => console.log(`App running on port 8000 in ${app.get('env')} mode`));
