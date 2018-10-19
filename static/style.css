@@ -151,7 +151,7 @@ main img {
 }
 
 .multi-column .column {
-  padding: 0 10px;
+  padding-right: 10px;
   flex-grow: 1;
   flex-basis: 0;
 }
@@ -166,6 +166,7 @@ main img {
 }
 
 .border-bottom {
+  padding-bottom: 20px;
   border-bottom: 1px solid #03446b;
 }
 
