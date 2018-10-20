@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
+app.get('/team-history', (req, res) => {
+  res.render('team-history.html');
+});
+
 app.get('/sponsors', (req, res) => {
   res.render('sponsors.html');
 });
@@ -37,16 +41,28 @@ app.get('/team-organization/CAD', (req, res) => {
   res.render('subteams/CAD.html');
 });
 
+app.get('/team-organization/code', (req, res) => {
+  res.render('subteams/code.html');
+});
+
 app.get('/team-organization/electronics', (req, res) => {
   res.render('subteams/electronics.html');
 });
 
-app.get('/team-organization/scouting-and-strategy', (req, res) => {
-  res.render('subteams/scouting-and-strategy.html');
+app.get('/team-organization/marketing-and-imagery', (req, res) => {
+  res.render('subteams/marketing-and-imagery.html');
 });
 
-app.get('/team-history', (req, res) => {
-  res.render('team-history.html');
+app.get('/team-organization/media-and-online-presence', (req, res) => {
+  res.render('subteams/media-and-online-presence.html');
+});
+
+app.get('/team-organization/outreach', (req, res) => {
+  res.render('subteams/outreach.html');
+});
+
+app.get('/team-organization/scouting-and-strategy', (req, res) => {
+  res.render('subteams/scouting-and-strategy.html');
 });
 
 app.get('/past_robots', (req, res) => { 
