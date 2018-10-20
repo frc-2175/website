@@ -220,7 +220,7 @@ footer li:not(:first-of-type)::before {
   margin-left: 18px;
 }
 
-.past_robots img {
+.past-robots img {
     width: 600px;
 	margin-bottom: 30px
 }
