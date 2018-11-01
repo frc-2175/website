@@ -49,28 +49,26 @@ header .not-the-logo {
   flex-direction: column;
 }
 
-@media all and (min-width: 630px) {
-  header .logo {
-    display: inline-block;
-    height: 140px;
-  }
+header .logo {
+  display: inline-block;
+  height: 140px;
+}
 
-  header h1 {
-    display: inline-block;
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 60px;
-    margin: 0;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    color: #03446b;
-  }
+header h1 {
+  display: inline-block;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 60px;
+  margin: 0;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  color: #03446b;
+}
 
-  header li a {
-    display: block;
-    font-size: 28px;
-    font-family: "Roboto Slab", sans-serif;
-    padding: 8px 14px;
-  }
+header li a {
+  display: block;
+  font-size: 28px;
+  font-family: "Roboto Slab", sans-serif;
+  padding: 8px 14px;
 }
 
 @media all and (max-width: 629px) {
@@ -121,8 +119,6 @@ header .outer > li:hover .nested {
   display: block;
 }
 
-
-
 header ul li:hover {
   background-color: darkgray;
 }
@@ -160,31 +156,29 @@ main img {
   margin-right: auto;
 }
 
-@media all and (min-width: 630px) {
-  .multi-column {
-    display: flex;
-    align-items: flex-start;
-  }
+.multi-column {
+  display: flex;
+  align-items: flex-start;
+}
 
-  .multi-column .column {
-    padding-right: 10px;
-    flex-grow: 1;
-    flex-basis: 0;
-  }
+.multi-column .column {
+  padding-right: 10px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
 
-  .multi-column-with-picture p {
-    margin-top: 0;
-    padding-top: 0;
-  }
+.multi-column-with-picture p {
+  margin-top: 0;
+  padding-top: 0;
+}
 
-  .multi-column .column.span2 {
-    flex-grow: 2;
-  }
+.multi-column .column.span2 {
+  flex-grow: 2;
 }
 
 @media all and (max-width: 629px) {
   .multi-column {
-    /* display: flex; */
+    display: block;
     align-items: flex-start;
   }
 
