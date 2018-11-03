@@ -41,6 +41,7 @@ header {
   margin-top: 20px;
   padding-bottom: 15px;
   display: flex;
+  color: #03446b;
 }
 
 header .not-the-logo {
@@ -61,38 +62,13 @@ header h1 {
   margin: 0;
   margin-bottom: 10px;
   margin-left: 20px;
-  color: #03446b;
 }
 
-header li a {
+header li a, header li div {
   display: block;
   font-size: 28px;
   font-family: "Roboto Slab", sans-serif;
   padding: 8px 14px;
-}
-
-@media all and (max-width: 629px) {
-  header .logo {
-    display: none;
-    /* height: 140px; */
-  }
-
-  header h1 {
-    display: inline-block;
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 51px;
-    margin: 0;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    color: #03446b;
-  }
-
-  header li a {
-    display: block;
-    font-size: 24px;
-    font-family: "Roboto Slab", sans-serif;
-    padding: 8px 14px;
-  }
 }
 
 header h1:hover {
@@ -176,28 +152,6 @@ main img {
   flex-grow: 2;
 }
 
-@media all and (max-width: 629px) {
-  .multi-column {
-    display: block;
-    align-items: flex-start;
-  }
-
-  .multi-column .column {
-    padding-right: 10px;
-    /* flex-grow: 1;
-    flex-basis: 0; */
-  }
-
-  .multi-column-with-picture p {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  .multi-column .column.span2 {
-    /* flex-grow: 2; */
-  }
-}
-
 .border-bottom {
   padding-bottom: 20px;
   border-bottom: 1px solid #03446b;
@@ -275,4 +229,57 @@ footer li:not(:first-of-type)::before {
   text-align: center;
   font-size: 18px;
   line-height: 0.8em;
+}
+
+@media all and (max-width: 629px) {
+  header .logo {
+    display: none;
+    /* height: 140px; */
+  }
+
+  header h1 {
+    display: inline-block;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 46px;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+
+  header li a, header li div {
+    display: block;
+    font-size: 24px;
+    font-family: "Roboto Slab", sans-serif;
+    padding: 8px 14px;
+  }
+
+  header .outer > li {
+    display: inline-block;
+    position: static;
+  }
+
+  header .outer > li:hover .nested {
+    display: block;
+    width: 100%
+  }
+
+  .multi-column {
+    display: block;
+    align-items: flex-start;
+  }
+
+  .multi-column .column {
+    padding-right: 10px;
+    /* flex-grow: 1;
+    flex-basis: 0; */
+  }
+
+  .multi-column-with-picture p {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .multi-column .column.span2 {
+    /* flex-grow: 2; */
+  }
 }
