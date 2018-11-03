@@ -64,7 +64,7 @@ header h1 {
   margin-left: 20px;
 }
 
-header li a, header li div {
+header li a {
   display: block;
   font-size: 28px;
   font-family: "Roboto Slab", sans-serif;
@@ -246,7 +246,7 @@ footer li:not(:first-of-type)::before {
     margin-left: 20px;
   }
 
-  header li a, header li div {
+  header li a {
     display: block;
     font-size: 24px;
     font-family: "Roboto Slab", sans-serif;
