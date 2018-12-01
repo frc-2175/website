@@ -47,7 +47,6 @@ db.serialize(function() {
     } else {
       start = row.version;
     }
-    console.log(start);
     doCommandsFrom(start);
     db.run(`UPDATE metadata SET version = ${commands.length}`);
   });
@@ -55,11 +54,9 @@ db.serialize(function() {
 
 function doCommandsFrom(index) {
   if(index < commands.length) {
-    db.run(commands[index], function() {
-      callbacks[index]();
-      if(index < commands.length - 1) {
-        doCommandsFrom(index + 1);
-      }
+    db.run(commands[index], function(err) {
+      callbacks[index](err);
+      doCommandsFrom(index + 1);
     });
   }
 }
