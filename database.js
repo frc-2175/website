@@ -7,7 +7,6 @@ const commands = [
     hash TEXT,
     PRIMARY KEY(username)
   );`,
-  'ALTER TABLE users ADD COLUMN food TEXT'  
 ];
 
 const callbacks = [
