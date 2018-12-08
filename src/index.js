@@ -73,6 +73,10 @@ app.get('/past-robots', (req, res) => {
   res.render('past-robots.html');
 });
 
+app.get('/team-requirements', (req, res) => {
+  res.render('team-requirements.html');
+});
+
 app.get('/dashboard', (req, res) => {
   res.render('dashboard.html');
 })
