@@ -11,14 +11,14 @@ const commands = [
 
 const callbacks = [
   function(err) {
-    if(err !== undefined) {
-      console.log(err.message);
+    if(err) {
+      console.log(err);
     }
     console.log('Created users table');
   },
   function(err) {
-    if(err !== undefined) {
-      console.log(err.message);
+    if(err) {
+      console.log(err);
     }
     console.log('Created food column');
   }
