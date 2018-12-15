@@ -85,3 +85,18 @@ exports.readToken = function(token) {
     myStr += myKey.final('utf8');
     return JSON.parse(myStr);
 }
+
+exports.isValidToken = function(token) {
+    try {
+        const tokenObj = exports.readToken(token);
+        if(!tokenObj.username) {
+            console.log('No username variable for the token');
+            return false;
+        }
+    } catch(error) {
+        console.log('Failed to decrypt the token');
+        console.error(error);
+        return false;
+    }    
+    return true;
+}

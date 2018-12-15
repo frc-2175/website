@@ -13,6 +13,15 @@ nunjucks.configure('src/templates', {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.use('/user', (req, res, next) => {
+  console.log(req.cookies.token);
+  if(useraccounts.isValidToken(req.cookies.token)) {
+    next();
+  } else {
+    res.send('You need to be logged in to view this page');
+  }
+});
+
 app.use('/static', express.static('static'));
 
 app.get('/', (req, res) => {
@@ -125,14 +134,13 @@ app.post('/signup-post', (req, res, next) => {
   }
 });
 
-app.get('/restricted', (req, res) => {
-  let token = useraccounts.readToken(req.cookies.token);
-  res.send(token);
+app.get('/user/restricted', (req, res) => {
+  res.send('BOOM');
 });
 
 app.use(function(error, req, res, next) {
   res.status(500).send('Error: 500');
   console.error(error);
-})
+});
 
 app.listen(8000, () => console.log(`App running on port 8000 in ${app.get('env')} mode`));
