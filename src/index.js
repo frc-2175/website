@@ -1,17 +1,11 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const useraccounts = require('./useraccounts');
 const app = express();
 
 nunjucks.configure('src/templates', {
   autoescape: true,
   express: app
 });
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 app.use('/static', express.static('static'));
 
@@ -85,54 +79,6 @@ app.get('/team-requirements', (req, res) => {
 
 app.get('/dashboard', (req, res) => {
   res.render('dashboard.html');
-})
-
-app.get('/login', (req, res) => {
-  res.render('login.html');
-});
-
-app.post('/login-post', (req, res, next) => {
-  useraccounts.checkPassword(req.body.username, req.body.password, function(error, same) {
-    if(error) {
-      next(error);
-    } else {
-      if(same) {
-        res.cookie('token', useraccounts.genToken(req.body.username));
-        res.redirect('/');
-      } else {
-        res.redirect('/login');
-      }
-    }
-  });
-});
-
-app.get('/signup', (req, res) => {
-  res.render('signup.html');
-})
-
-app.post('/signup-post', (req, res, next) => {
-  if(req.body.password === req.body["password-conf"]) {
-    useraccounts.addUser(req.body.username, req.body.password, function(error) {
-      if(error) {
-        next(error);
-      } else {
-        res.cookie('token', useraccounts.genToken(req.body.username));
-        res.redirect('/');
-      }
-    });
-  } else {
-    res.redirect('/signup');
-  }
-});
-
-app.get('/restricted', (req, res) => {
-  let token = useraccounts.readToken(req.cookies.token);
-  res.send(token);
-});
-
-app.use(function(error, req, res, next) {
-  res.status(500).send('Error: 500');
-  console.error(error);
 })
 
 app.listen(8000, () => console.log(`App running on port 8000 in ${app.get('env')} mode`));
