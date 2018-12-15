@@ -77,6 +77,10 @@ app.get('/team-requirements', (req, res) => {
   res.render('team-requirements.html');
 });
 
+app.get('/mock-kickoff', (req, res) => {
+  res.render('mock-kickoff.html');
+});
+
 app.get('/dashboard', (req, res) => {
   res.render('dashboard.html');
 })
