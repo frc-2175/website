@@ -15,12 +15,6 @@ const callbacks = [
       console.log(err);
     }
     console.log('Created users table');
-  },
-  function(err) {
-    if(err) {
-      console.log(err);
-    }
-    console.log('Created food column');
   }
 ]
 
