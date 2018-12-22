@@ -283,3 +283,27 @@ footer li:not(:first-of-type)::before {
     /* flex-grow: 2; */
   }
 }
+
+form div label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+form div input {
+  display: block;
+  border: 1px solid #03446b;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+form input[type=submit] {
+  border: none;
+  border-radius: 3px;
+  background-color: #045b91;
+  padding: 9px 20px;
+  margin: 10px 0;
+  color: white;
+  font-weight: bold;
+  letter-spacing: .07em;
+}
