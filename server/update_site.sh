@@ -5,6 +5,7 @@ cd /home/ubuntu/website
 sudo git reset --hard
 sudo git pull
 yarn install
+node database.js
 sudo cp server/caddy.service /lib/systemd/system/
 sudo cp server/website.service /lib/systemd/system/
 sudo systemctl daemon-reload
