@@ -4,8 +4,9 @@ sudo systemctl stop caddy
 cd /home/ubuntu/website
 sudo git reset --hard
 sudo git pull
-yarn install
-node database.js
+sudo yarn install
+sudo node database.js
+sudo chown ubuntu:ubuntu database
 sudo cp server/caddy.service /lib/systemd/system/
 sudo cp server/website.service /lib/systemd/system/
 sudo systemctl daemon-reload
