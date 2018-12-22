@@ -10,7 +10,7 @@ const iv = Buffer.alloc(16, 0);
 exports.addUser = function(username, password, callback) {
     hash(password, function(error, encrypted) {
         try {
-            if(error === null) {
+            if(!error) {
                 db.run('INSERT INTO users VALUES (?, ?)', username, encrypted, function(error) {
                     try {
                         if(error) {

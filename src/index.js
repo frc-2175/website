@@ -23,6 +23,7 @@ app.use(['/user', '/dashboard'], (req, res, next) => {
 });
 
 app.use('/', (req, res, next) => {
+  console.log(req.originalUrl);
   environment.addGlobal('loggedIn', useraccounts.isValidToken(req.cookies.token));
   next();
 })
@@ -142,7 +143,7 @@ app.post('/signup-post', (req, res, next) => {
   } else if (req.body.password === req.body["password-conf"]) {
     useraccounts.addUser(req.body.username, req.body.password, function(error, isTaken) {
       if(error) {
-        console.error(error);
+        console.error('THERE WAS AN ERROR TRYING TO ADD THE USER', error);
         res.redirect(`/signup?message=${encodeURIComponent('Something went wrong')}`);
       } else {
         if(isTaken) {
