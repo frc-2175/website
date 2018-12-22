@@ -149,6 +149,7 @@ app.post('/signup-post', (req, res, next) => {
         if(isTaken) {
           res.redirect(`/signup?message=${encodeURIComponent('Username already taken')}`);
         } else {
+          console.trace('THIS IS THE ELSE BLOCK WHERE THERE WAS NO USER ERROR');
           res.cookie('token', useraccounts.genToken(req.body.username));
           res.redirect('/');
         }
