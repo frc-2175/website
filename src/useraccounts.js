@@ -13,10 +13,10 @@ exports.addUser = function(username, password, callback) {
             if(error === null) {
                 db.run('INSERT INTO users VALUES (?, ?)', username, encrypted, function(error) {
                     try {
-                        if(error !== undefined) {
-                            callback(error);
+                        if(error) {
+                            callback(null, true);
                         } else {
-                            callback(null);
+                            callback(null, false);
                         }
                     } catch(error) {
                         callback(error);

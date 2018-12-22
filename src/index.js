@@ -140,12 +140,16 @@ app.post('/signup-post', (req, res, next) => {
   if(!req.body.username || !req.body.password || !req.body["password-conf"]) {
     res.redirect(`/signup?message=${encodeURIComponent('One or more fields was left blank')}`);
   } else if (req.body.password === req.body["password-conf"]) {
-    useraccounts.addUser(req.body.username, req.body.password, function(error) {
+    useraccounts.addUser(req.body.username, req.body.password, function(error, isTaken) {
       if(error) {
-        res.redirect(`/signup?message=${encodeURIComponent('Username already taken')}`)
+        res.redirect(`/signup?message=${encodeURIComponent('Something went wrong')}`);
       } else {
-        res.cookie('token', useraccounts.genToken(req.body.username));
-        res.redirect('/');
+        if(isTaken) {
+          res.redirect(`/signup?message=${encodeURIComponent('Username already taken')}`);
+        } else {
+          res.cookie('token', useraccounts.genToken(req.body.username));
+          res.redirect('/');
+        }
       }
     });
   } else {
