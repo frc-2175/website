@@ -94,8 +94,6 @@ exports.isValidToken = function(token) {
             return false;
         }
     } catch(error) {
-        console.log('Failed to decrypt the token');
-        console.error(error);
         return false;
     }    
     return true;
