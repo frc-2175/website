@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const useraccounts = require('./useraccounts');
 const app = express();
 
-nunjucks.configure('src/templates', {
+const environment = nunjucks.configure('src/templates', {
   autoescape: true,
   express: app
 });
@@ -13,14 +13,19 @@ nunjucks.configure('src/templates', {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use('/user', (req, res, next) => {
+app.use(['/user', '/dashboard'], (req, res, next) => {
   console.log(req.cookies.token);
   if(useraccounts.isValidToken(req.cookies.token)) {
     next();
   } else {
-    res.send('You need to be logged in to view this page');
+    res.redirect(`/login?redirect=${encodeURIComponent(req.originalUrl)}`);
   }
 });
+
+app.use('/', (req, res, next) => {
+  environment.addGlobal('loggedIn', useraccounts.isValidToken(req.cookies.token));
+  next();
+})
 
 app.use('/static', express.static('static'));
 
@@ -97,46 +102,61 @@ app.get('/dashboard', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-  res.render('login.html');
+  res.render('login.html', { redirect: req.query.redirect, message: req.query.message });
 });
 
 app.post('/login-post', (req, res, next) => {
-  useraccounts.checkPassword(req.body.username, req.body.password, function(error, same) {
-    if(error) {
-      next(error);
-    } else {
-      if(same) {
-        res.cookie('token', useraccounts.genToken(req.body.username));
-        res.redirect('/');
+  if(!req.body.username || !req.body.password) {
+    res.redirect(`/login?message=${encodeURIComponent('The username and/or password was blank')}`);
+  } else {
+    useraccounts.checkPassword(req.body.username, req.body.password, function(error, same) {
+      if(error) {
+        res.redirect(`/login?message=${encodeURIComponent('The username and/or password was incorrect')}`);
       } else {
-        res.redirect('/login');
+        if(same) {
+          res.cookie('token', useraccounts.genToken(req.body.username));
+          if(!req.body.redirect) {
+            res.redirect('/');
+          } else {
+            res.redirect(req.body.redirect);
+          }
+        } else {
+          res.redirect('/login');
+        }
       }
-    }
-  });
+    });
+  }
 });
 
 app.get('/signup', (req, res) => {
-  res.render('signup.html');
+  res.render('signup.html', { message: req.query.message });
 })
 
 app.post('/signup-post', (req, res, next) => {
-  if(req.body.password === req.body["password-conf"]) {
+  if(!req.body.username || !req.body.password || !req.body["password-conf"]) {
+    res.redirect(`/signup?message=${encodeURIComponent('One or more fields was left blank')}`);
+  } else if (req.body.password === req.body["password-conf"]) {
     useraccounts.addUser(req.body.username, req.body.password, function(error) {
       if(error) {
-        next(error);
+        res.redirect(`/signup?message=${encodeURIComponent('Username already taken')}`)
       } else {
         res.cookie('token', useraccounts.genToken(req.body.username));
         res.redirect('/');
       }
     });
   } else {
-    res.redirect('/signup');
+    res.redirect(`/signup?message=${encodeURIComponent('Password and password confirmation didn\'t match')}`);
   }
 });
 
 app.get('/user/restricted', (req, res) => {
   res.send('BOOM');
 });
+
+app.get('/logout', (req, res) => {
+  res.cookie('token', '', { expires: new Date(0) });
+  res.redirect('/');
+})
 
 app.use(function(error, req, res, next) {
   res.status(500).send('Error: 500');

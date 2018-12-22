@@ -6,6 +6,11 @@ Sign Up
 
 {% block content %}
 <h2>Sign Up</h2>
+{% if message %}
+<div class="login-message">
+    {{ message }}
+</div>
+{% endif %}
 <form action="/signup-post" method="post">
     <div>
         <label for="username">Username:</label>
