@@ -142,6 +142,7 @@ app.post('/signup-post', (req, res, next) => {
   } else if (req.body.password === req.body["password-conf"]) {
     useraccounts.addUser(req.body.username, req.body.password, function(error, isTaken) {
       if(error) {
+        console.error(error);
         res.redirect(`/signup?message=${encodeURIComponent('Something went wrong')}`);
       } else {
         if(isTaken) {
