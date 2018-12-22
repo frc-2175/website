@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const db = new sqlite.Database('database');
 
 const key = fs.readFileSync('token-key', 'utf8');
+console.log('Key length: ' + key.length);
 const iv = Buffer.alloc(16, 0);
 
 exports.addUser = function(username, password, callback) {

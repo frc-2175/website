@@ -142,17 +142,20 @@ app.post('/signup-post', (req, res, next) => {
     res.redirect(`/signup?message=${encodeURIComponent('One or more fields was left blank')}`);
   } else if (req.body.password === req.body["password-conf"]) {
     useraccounts.addUser(req.body.username, req.body.password, function(error, isTaken) {
-      if(error) {
-        console.error('THERE WAS AN ERROR TRYING TO ADD THE USER', error);
-        res.redirect(`/signup?message=${encodeURIComponent('Something went wrong')}`);
-      } else {
-        if(isTaken) {
-          res.redirect(`/signup?message=${encodeURIComponent('Username already taken')}`);
+      try {
+        if(error) {
+          console.error(error);
+          res.redirect(`/signup?message=${encodeURIComponent('Something went wrong')}`);
         } else {
-          console.trace('THIS IS THE ELSE BLOCK WHERE THERE WAS NO USER ERROR');
-          res.cookie('token', useraccounts.genToken(req.body.username));
-          res.redirect('/');
+          if(isTaken) {
+            res.redirect(`/signup?message=${encodeURIComponent('Username already taken')}`);
+          } else {
+            res.cookie('token', useraccounts.genToken(req.body.username));
+            res.redirect('/');
+          }
         }
+      } catch(error) {
+        console.error('There was a problem in the callback of adding a user', error);
       }
     });
   } else {
