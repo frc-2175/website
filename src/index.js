@@ -13,6 +13,9 @@ const environment = nunjucks.configure('src/templates', {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+/* Page restriction code: routes starting with the strings in the arrays
+   will be restricted to users that have a valid token (i.e. are logged in)
+   */
 app.use(['/user', '/dashboard'], (req, res, next) => {
   console.log(req.cookies.token);
   if(useraccounts.isValidToken(req.cookies.token)) {
@@ -22,6 +25,7 @@ app.use(['/user', '/dashboard'], (req, res, next) => {
   }
 });
 
+// Any time a request is made, we log some things and add some global vars.
 app.use('/', (req, res, next) => {
   console.log(req.originalUrl);
   environment.addGlobal('loggedIn', useraccounts.isValidToken(req.cookies.token));
@@ -30,6 +34,7 @@ app.use('/', (req, res, next) => {
 
 app.use('/static', express.static('static'));
 
+// Big massive list of routes
 app.get('/', (req, res) => {
   res.render('index.html');
 });
@@ -110,6 +115,7 @@ app.get('/login', (req, res) => {
   res.render('login.html', { redirect: req.query.redirect, message: req.query.message });
 });
 
+// Code that handles the submission of a login form
 app.post('/login-post', (req, res, next) => {
   if(!req.body.username || !req.body.password) {
     res.redirect(`/login?message=${encodeURIComponent('The username and/or password was blank')}`);
@@ -136,7 +142,7 @@ app.post('/login-post', (req, res, next) => {
 app.get('/signup', (req, res) => {
   res.render('signup.html', { message: req.query.message });
 })
-
+ // Code that handles the submission of a signup form
 app.post('/signup-post', (req, res, next) => {
   if(!req.body.username || !req.body.password || !req.body["password-conf"]) {
     res.redirect(`/signup?message=${encodeURIComponent('One or more fields was left blank')}`);
@@ -163,18 +169,22 @@ app.post('/signup-post', (req, res, next) => {
   }
 });
 
+// Test restricted page
 app.get('/user/restricted', (req, res) => {
   res.send('BOOM');
 });
 
+// Logout functionality
 app.get('/logout', (req, res) => {
   res.cookie('token', '', { expires: new Date(0) });
   res.redirect('/');
 })
 
+// Super basic (and bad) error handling
 app.use(function(error, req, res, next) {
   res.status(500).send('Error: 500');
   console.error(error);
 });
 
+// Sets the port and logs the environment mode
 app.listen(8000, () => console.log(`App running on port 8000 in ${app.get('env')} mode`));
