@@ -4,10 +4,18 @@ const fs = require('fs');
 const crypto = require('crypto');
 const db = new sqlite.Database('database');
 
+// Create variables for encryption and decryption of tokens
 const key = fs.readFileSync('token-key', 'utf8');
 console.log('Key length: ' + key.length);
 const iv = Buffer.alloc(16, 0);
 
+/**
+ * Adds a user to the database with their username and hashed password
+ * @param {string} username username to add
+ * @param {string} password password corresponding to the user
+ * @param {function} callback the callback function which takes the error and 
+ * whether or not the username entered was taken or not
+ */
 exports.addUser = function(username, password, callback) {
     hash(password, function(error, encrypted) {
         try {
@@ -32,6 +40,12 @@ exports.addUser = function(username, password, callback) {
     })
 }
 
+/**
+ * Hashes a password
+ * @param {string} password the password to hash
+ * @param {function} callback callback function which takes the error and 
+ * the encrypted version of the password
+ */
 function hash(password, callback) {
     bcrypt.hash(password, 10, function(error, encrypted) {
         try {
@@ -45,7 +59,13 @@ function hash(password, callback) {
         }
     });
 }
-
+/**
+ * Checks if a password is correct for a certain user
+ * @param {string} username the username corresponding to the password
+ * @param {string} password the password to be checked
+ * @param {function} callback the callback function which takes the error and
+ * whether or not the attempted password and the stored password are the same.
+ */
 exports.checkPassword = function(username, password, callback) {
     db.get('SELECT hash FROM users WHERE username = ?', username, function(error, row) {
         try {
@@ -69,7 +89,10 @@ exports.checkPassword = function(username, password, callback) {
         }
     });
 }
-
+/**
+ * Generates a token based on a username
+ * @param {string} username the username to be included in the token object
+ */
 exports.genToken = function(username) {
     const token = JSON.stringify({
         username: username,
@@ -80,6 +103,11 @@ exports.genToken = function(username) {
     return myStr;
 }
 
+/**
+ * Reads an encrypted token and converts it to JSON
+ * @param {string} token the token to be read
+ * @returns {object} the JSON object that the token refers to
+ */
 exports.readToken = function(token) {
     const myKey = crypto.createDecipheriv('aes-256-cbc', key, iv);
     let myStr = myKey.update(token, 'hex', 'utf8');
@@ -87,6 +115,11 @@ exports.readToken = function(token) {
     return JSON.parse(myStr);
 }
 
+/**
+ * Checks if something is a valid token
+ * @param {string} token the token to be checked
+ * @returns {boolean} if the token was valid
+ */
 exports.isValidToken = function(token) {
     try {
         const tokenObj = exports.readToken(token);
