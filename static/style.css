@@ -86,6 +86,10 @@ header nav ul {
   text-align: right;
 }
 
+header nav > ul {
+  padding-top: 10px; 
+}
+
 header .outer > li {
   display: inline-block;
   position: relative;
@@ -93,6 +97,7 @@ header .outer > li {
 
 header .outer > li:hover .nested {
   display: block;
+  z-index: 1;
 }
 
 header ul li:hover {
@@ -142,7 +147,11 @@ main img {
   flex-grow: 1;
   flex-basis: 0;
   margin-right: 35px;
+}
 
+.multi-column .column:last-child {
+  margin-right: 0;
+  padding-right: 0;
 }
 
 .multi-column-with-picture p {
@@ -270,8 +279,9 @@ footer li:not(:first-of-type)::before {
   }
 
   .multi-column .column {
-    padding-right: 10px;
-	margin-bottom: 20px;
+    padding-right: 0;
+    margin-right: 0;
+	  margin-bottom: 20px;
     /* flex-grow: 1;
     flex-basis: 0; */
   }
@@ -329,4 +339,31 @@ form input[type=submit] {
 
 .multi-column-with-picture {
   margin-top: 35px;
+}
+
+.aspect-square {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.aspect-4x3 {
+  position: relative;
+  padding-bottom: 75%;
+}
+
+.aspect-16x9 {
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.carousel img {
+  position: absolute;
+  width: 100%;
+  transform: translateX(0%);
+  transition: transform 1s ease-out;
+}
+
+.carousel img.right-side {
+  transform: translateX(100%);
 }
