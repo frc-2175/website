@@ -97,7 +97,7 @@ header .outer > li {
 
 header .outer > li:hover .nested {
   display: block;
-  z-index: 1;
+  z-index: 1000000;
 }
 
 header ul li:hover {
