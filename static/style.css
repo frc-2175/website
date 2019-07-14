@@ -353,7 +353,7 @@ form input[type=submit] {
 
 .aspect-16x9 {
   position: relative;
-  padding-bottom: 48.55%;
+  padding-bottom: 56.25%;
   overflow: hidden;
 }
 
@@ -366,4 +366,8 @@ form input[type=submit] {
 
 .carousel img.right-side {
   transform: translateX(100%);
+}
+
+.aspect-spacing {
+  padding-bottom: 48.55%;
 }
