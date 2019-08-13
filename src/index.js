@@ -162,6 +162,7 @@ app.post('/signup-post', (req, res, next) => {
         }
       } catch(error) {
         console.error('There was a problem in the callback of adding a user', error);
+        throw error;
       }
     });
   } else {
