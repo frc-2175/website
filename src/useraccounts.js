@@ -5,9 +5,19 @@ const crypto = require('crypto');
 const db = new sqlite.Database('database');
 
 // Create variables for encryption and decryption of tokens
-const key = fs.readFileSync('token-key', 'utf8');
-console.log('Key length: ' + key.length);
+let key = null;
 const iv = Buffer.alloc(16, 0);
+try {
+    key = fs.readFileSync('token-key', 'utf8');
+    console.log('Key length: ' + key.length);
+} catch (e) {
+    if (e.code === 'ENOENT') {
+        // File not found
+        console.warn("WARNING: Could not find file token-key! You won't be able to log in.");
+    } else {
+        throw e;
+    }
+}
 
 /**
  * Adds a user to the database with their username and hashed password
