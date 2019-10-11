@@ -1,8 +1,9 @@
-const sqlite = require('sqlite3');
+const sqlite = require('sqlite');
 const bcrypt = require('bcrypt');
 const fs = require('fs');
 const crypto = require('crypto');
-const db = new sqlite.Database('database');
+
+const dbPromise = sqlite.open('database');
 
 // Create variables for encryption and decryption of tokens
 let key = null;
@@ -26,49 +27,22 @@ try {
  * @param {function} callback the callback function which takes the error and 
  * whether or not the username entered was taken or not
  */
-exports.addUser = function(username, password, callback) {
-    hash(password, function(error, encrypted) {
-        try {
-            if(!error) {
-                db.run('INSERT INTO users VALUES (?, ?)', username, encrypted, function(error) {
-                    try {
-                        if(error) {
-                            callback(null, true);
-                        } else {
-                            callback(null, false);
-                        }
-                    } catch(error) {
-                        callback(error);
-                    }
-                });
-            } else {
-                callback(error);
-            }
-        } catch(error) {
-            callback(error);
+exports.addUser = async function(username, password) {
+    const passwordHash = await bcrypt.hash(password, 10);
+    const db = await dbPromise;
+
+    try {
+        await db.run('INSERT INTO users VALUES (?, ?)', username, encypasdlfjasdf);
+        return false;
+    } catch (error) {
+        if (error.code === 'SQLITE_CONSTRAINT') {
+            return true;
+        } else {
+            throw error;
         }
-    })
+    }
 }
 
-/**
- * Hashes a password
- * @param {string} password the password to hash
- * @param {function} callback callback function which takes the error and 
- * the encrypted version of the password
- */
-function hash(password, callback) {
-    bcrypt.hash(password, 10, function(error, encrypted) {
-        try {
-            if(error === undefined) {
-                callback(null, encrypted);
-            } else {
-                callback(error, "");
-            }
-        } catch(error) {
-            callback(error, "");
-        }
-    });
-}
 /**
  * Checks if a password is correct for a certain user
  * @param {string} username the username corresponding to the password
@@ -76,29 +50,18 @@ function hash(password, callback) {
  * @param {function} callback the callback function which takes the error and
  * whether or not the attempted password and the stored password are the same.
  */
-exports.checkPassword = function(username, password, callback) {
-    db.get('SELECT hash FROM users WHERE username = ?', username, function(error, row) {
-        try {
-            if(!error) {
-                bcrypt.compare(password, row.hash, function(error, same) {
-                    try {
-                        if(error === undefined) {
-                            callback(null, same);
-                        } else {
-                            callback(error, false);
-                        }
-                    } catch(error) {
-                        callback(error, false);
-                    }
-                });
-            } else {
-                callback(error, false);
-            }
-        } catch(error) {
-            callback(error, false);
-        }
-    });
+exports.checkPassword = async function(username, password) {
+    const db = await dbPromise;
+    const row = await db.get('SELECT hash FROM users WHERE username = ?', username);
+    if (!row) {
+        return false;
+    }
+
+    const same = await bcrypt.compare(password, row.hash);
+
+    return same;
 }
+
 /**
  * Generates a token based on a username
  * @param {string} username the username to be included in the token object
