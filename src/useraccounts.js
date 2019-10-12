@@ -32,7 +32,7 @@ exports.addUser = async function(username, password) {
     const db = await dbPromise;
 
     try {
-        await db.run('INSERT INTO users VALUES (?, ?)', username, encypasdlfjasdf);
+        await db.run('INSERT INTO users VALUES (?, ?)', username, passwordHash);
         return false;
     } catch (error) {
         if (error.code === 'SQLITE_CONSTRAINT') {
