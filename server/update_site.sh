@@ -4,7 +4,7 @@ sudo systemctl stop caddy
 cd /home/ubuntu/website
 sudo git reset --hard
 sudo git pull
-sudo yarn install
+sudo npm install
 sudo node database.js
 sudo chown ubuntu:ubuntu database
 sudo cp server/caddy.service /lib/systemd/system/
