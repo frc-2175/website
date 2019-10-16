@@ -2,10 +2,10 @@
 sudo systemctl stop website
 sudo systemctl stop caddy
 cd /home/ubuntu/website
-sudo git reset --hard
-sudo git pull
-sudo npm install
-sudo node database.js
+git fetch
+git reset --hard origin/master
+npm install
+node database.js
 sudo chown ubuntu:ubuntu database
 sudo cp server/caddy.service /lib/systemd/system/
 sudo cp server/website.service /lib/systemd/system/
