@@ -2,7 +2,7 @@
 Description=it runs the website
 
 [Service]
-ExecStart=/usr/bin/yarn --cwd /home/ubuntu/website run start
+ExecStart=/home/ubuntu/.nvm/versions/node/v12.12.0/bin/npm --prefix /home/ubuntu/website run start
 Restart=on-failure
 RestartSec=5
 Environment=NODE_ENV=production
