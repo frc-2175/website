@@ -7,7 +7,7 @@ www.fightingcalculators.org {
   redir https://fightingcalculators.org{uri}
 }
 
-fightingcalculators.org:8000 {
+benkins.fightingcalculators.org {
   root /home/ubuntu/benkins-root
   proxy / localhost:8080
 }
