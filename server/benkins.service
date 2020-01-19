@@ -3,6 +3,7 @@ Description=it runs benkins
 
 [Service]
 ExecStart=/home/ubuntu/benkins/benkins-server --basePath /home/ubuntu/benkins-root
+WorkingDirectory=/home/ubuntu/benkins
 Restart=on-failure
 RestartSec=5
 
