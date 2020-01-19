@@ -189,4 +189,4 @@ app.use(function(error, req, res, next) {
 });
 
 // Sets the port and logs the environment mode
-app.listen(8000, () => console.log(`App running on port 8000 in ${app.get('env')} mode`));
+app.listen(2175, () => console.log(`App running on port 2175 in ${app.get('env')} mode`));

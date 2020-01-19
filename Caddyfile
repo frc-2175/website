@@ -1,6 +1,6 @@
 fightingcalculators.org {
   root /home/ubuntu/website
-  proxy / localhost:8000
+  proxy / localhost:2175
 }
 
 www.fightingcalculators.org {
