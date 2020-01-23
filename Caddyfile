@@ -11,3 +11,8 @@ benkins.fightingcalculators.org {
   root /home/ubuntu/benkins-root
   proxy / localhost:8080
 }
+
+minecraft.fightingcalculators.org {
+  root /home/ubuntu/minecraft
+  proxy / localhost:25565
+}
