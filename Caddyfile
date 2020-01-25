@@ -1,8 +1,13 @@
 fightingcalculators.org {
   root /home/ubuntu/website
-  proxy / localhost:8000
+  proxy / localhost:2175
 }
 
 www.fightingcalculators.org {
   redir https://fightingcalculators.org{uri}
+}
+
+benkins.fightingcalculators.org {
+  root /home/ubuntu/benkins-root
+  proxy / localhost:8080
 }
