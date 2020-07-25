@@ -11,3 +11,8 @@ benkins.fightingcalculators.org {
   root /home/ubuntu/benkins-root
   proxy / localhost:8080
 }
+
+nexus.fightingcalculators.org {
+  proxy / localhost:8081
+}
+
