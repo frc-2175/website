@@ -12,7 +12,3 @@ benkins.fightingcalculators.org {
   proxy / localhost:8080
 }
 
-nexus.fightingcalculators.org {
-  proxy / https://nexus.fightingcalculators.org:8081
-}
-
