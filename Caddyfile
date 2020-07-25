@@ -13,6 +13,6 @@ benkins.fightingcalculators.org {
 }
 
 nexus.fightingcalculators.org {
-  proxy / nexus.fightingcalculators.org:8081
+  proxy / https://nexus.fightingcalculators.org:8081
 }
 
