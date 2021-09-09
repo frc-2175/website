@@ -10,13 +10,13 @@ The first step to working on the website is to get a current copy of the code on
 
     Download: https://git-scm.com/ 
 
-- Yarn, a package manager, which allows us to manage all of the external JavaScript libraries that we use (like ExpressJS). It also will manage the running of the server.
-
-    Download: https://yarnpkg.com/lang/en/ 
-
 - Node, which is a JavaScript program that allows us to run JavaScript code on a server. This is the basis of all that we are doing here, because without Node we wouldn’t be able to do any of this.
 
     Download (choose LTS): https://nodejs.org/en/
+
+- Yarn, a package manager, which allows us to manage all of the external JavaScript libraries that we use (like ExpressJS). It also will manage the running of the server.
+
+    Download: https://yarnpkg.com/lang/en/ 
 
 Once you have all of those downloaded (the default options are probably fine) the next step is to use Git to download a copy of the codebase.
 
