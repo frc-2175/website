@@ -203,3 +203,8 @@ app.get(‘/thenameofmypage’, (req, res) => {
 ```
 
 With this function call we have successfully added a page to our website. If we start the server and navigate to our page, it should look pretty cool.
+
+
+
+-----One more thing from Andy 
+if you're on an MSA computer, there could be an error saying Node isn't recognized... if that happens, Run VSCode in Admin mode then open the folder
