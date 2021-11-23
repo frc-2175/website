@@ -131,6 +131,8 @@ So, let’s get into it. A step-by-step guide to making a page on our website. O
 
 Before we actually start to code, you need an editor to code in. You can use virtually anything (Notepad++ will do), but if you want something with a little more power, Atom, Visual Studio Code, or Sublime Text will all do fine. I think they all have plugins for Nunjucks, which is what we need.
 
+  *if you're on an MSA computer, there could be an error saying Node isn't recognized... if that happens, Run your editor in Admin mode then open the folder*
+
 1. First things first, let’s make a file. The place that we’re storing all of our pages so far is the templates folder, because our pages use Nunjucks. So, make a new file in that folder and name it something clever, like yourname.html. Don’t name it “yourname.html”. Just choose something that makes sense. Also make sure the extension is .html.
 
 2. Next, we need to extend our base template. What this does is basically copy all of the content from the base template like the header and footer, but let’s us overwrite certain areas like the content or the title. We can do this by using a Nunjucks tag. Nunjucks tags are sort of like HTML tags, except they look like this: `{% nunjucks-tag %}` instead of the normal HTML tag. The tag to extend a file is simply extends and then the name of the file you want to extend. So your first line of the file will look like: `{% extends “base.html” %}`
@@ -206,6 +208,3 @@ app.get(‘/thenameofmypage’, (req, res) => {
 With this function call we have successfully added a page to our website. If we start the server and navigate to our page, it should look pretty cool.
 
 
-
------One more thing from Andy 
-if you're on an MSA computer, there could be an error saying Node isn't recognized... if that happens, Run VSCode in Admin mode then open the folder
