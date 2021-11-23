@@ -51,7 +51,8 @@ Now that you have the website code on your computer, it’s time to see the webs
 
 2. Next, run the command `yarn start`. This will start our web server on your computer. This allows you to visit the website.
 
-3. Open a browser and put `localhost:8000` in the address bar. You should see some sort of website thing pop up. This is the result of all of the code you just downloaded!
+3. Open a browser and put `localhost:8000` in the address bar. You should see some sort of website thing pop up. This is the result of all of the code you just downloaded! 
+*Note: If it says `App running on port 2175 in development mode` in the terminal then `localhost:2175` is what works.*
 
 ### Adding a Page
 
