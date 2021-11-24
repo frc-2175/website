@@ -207,4 +207,10 @@ app.get(‘/thenameofmypage’, (req, res) => {
 
 With this function call we have successfully added a page to our website. If we start the server and navigate to our page, it should look pretty cool.
 
+--------------------SSH stuff--------------------------------
 
+Windows:
+1. get yourself git-bash, if you have github desktop then it's already
+on your computer
+2. run $ ssh-keygen -t ed25519 -C "[Insert Email]"
+  your terminal should look like ex: run $ ssh-keygen -t ed25519 -C "[Insert Email]"
