@@ -209,8 +209,24 @@ With this function call we have successfully added a page to our website. If we 
 
 --------------------SSH stuff--------------------------------
 
+
 Windows:
-1. get yourself git-bash, if you have github desktop then it's already
-on your computer
-2. run $ ssh-keygen -t ed25519 -C "[Insert Email]"
-  your terminal should look like ex: run $ ssh-keygen -t ed25519 -C "[Insert Email]"
+1. get yourself git-bash, if you have github desktop then it's already on your computer
+
+2. open git bash and run: $ ssh-keygen -t ed25519 -C "[Insert Email]"
+    your terminal should look like ex: run $ ssh-keygen -t ed25519 -C "andyj@mnmsa.org"
+
+3. your ssh keys should generate in C:\users\[userName]\.ssh\
+    ex: C:\Users\AndyJ\.ssh\id_ed25519.pub
+
+4. share your public key with Ben (Visness) 
+    -> IT ENDS IN .pub
+    -> DO NOT SHARE YOUR PRIVATE KEY, IT'S THE FILE WITHOUT AN EXTENSION
+    -> NEVER SHARE YOUR PRIVATE KEY WITH ANYONE
+
+5. if you haven't already pushed your changes to the github, then do so now
+
+6. lastly, to remotely deploy website changes, go to the root directory of this wesbite repository, and look for "deploy.bat"
+    ->Then run it
+    ->To confirm success, the terminal might say "HEAD is now at [commit id] [commit title]"
+      ->Ex: HEAD is now at e1cca3b Removed the login requirement to see registration
