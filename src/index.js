@@ -16,7 +16,7 @@ app.use(cookieParser());
 /* Page restriction code: routes starting with the strings in the arrays
      will be restricted to users that have a valid token (i.e. are logged in)
      */
-app.use(['/user', '/dashboard', '/register'], (req, res, next) => {
+app.use(['/user', '/dashboard'], (req, res, next) => {
     console.log(req.cookies.token);
     if(useraccounts.isValidToken(req.cookies.token)) {
         next();
