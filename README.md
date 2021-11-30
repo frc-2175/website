@@ -228,5 +228,7 @@ Windows:
 
 6. lastly, to remotely deploy website changes, go to the root directory of this wesbite repository, and look for "deploy.bat"
     ->Then run it
+      -> you could either do this by opening file explorer then clicking it, or
+      -> you could go into the vscode terminal and type deploy.bat
     ->To confirm success, the terminal might say "HEAD is now at [commit id] [commit title]"
       ->Ex: HEAD is now at e1cca3b Removed the login requirement to see registration
