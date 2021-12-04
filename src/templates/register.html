@@ -81,19 +81,28 @@ Register
  
     
     <script>
-        
+        window.addEventListener('load', function() { 
+            const keys = Object.keys(localStorage);
+
+            keys.forEach((item, index) => {
+                const checkboxItem = localStorage.getItem(item)
+                console.log(document.getElementById(item));
+                console.log(checkboxItem)
+                document.getElementById(item).checked = (checkboxItem === "true");
+            });
+        }, false);
+
         function checkboxClicked(id) {
-            var checkboxElement = document.getElementById(id) 
-            var textElement = document.getElementById(id.replace("checkbox", "link"))
+            const checkboxElement = document.getElementById(id) 
+            const textStyle = document.getElementById(id.replace("checkbox", "link")).style
 
             localStorage.setItem(checkboxElement.id, checkboxElement.checked)
             if (checkboxElement.checked) {
-                textElement.style.setProperty("text-decoration", "line-through");
-                textElement.style.color = "grey";
-            }
-            else {
-                textElement.style.removeProperty("text-decoration", "line-through");
-                textElement.style.color = null;
+                textStyle.setProperty("text-decoration", "line-through");
+                textStyle.color = "grey"
+            } else {
+                textStyle.removeProperty("text-decoration", "line-through");
+                textStyle.color = null;
             }
 
             
