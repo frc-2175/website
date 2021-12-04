@@ -83,12 +83,22 @@ Register
     <script>
         window.addEventListener('load', function() { 
             const keys = Object.keys(localStorage);
+            
 
             keys.forEach((item, index) => {
+                const textStyle = document.getElementById(item.replace("checkbox", "link")).style
                 const checkboxItem = localStorage.getItem(item)
                 console.log(document.getElementById(item));
                 console.log(checkboxItem)
                 document.getElementById(item).checked = (checkboxItem === "true");
+                if (checkboxItem === "true") {
+                    textStyle.setProperty("text-decoration", "line-through");
+                    textStyle.color = "grey"
+                }
+                else {
+                    textStyle.removeProperty("text-decoration", "line-through");
+                    textStyle.color = null;
+                }
             });
         }, false);
 
