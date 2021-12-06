@@ -64,10 +64,12 @@ db.serialize(function() {
  * Runs commands from the commands array with their respective callbacks
  * @param {number} index the index at which to start the commands
  */
-function doCommandsFrom(index) {
-  for (let i = index; i < commands.lengh; i++){
-    db.run(commands[i], function(err) {
+async function doCommandsFrom(index) {
+  for (let i = index; i < commands.length; i++) {
+    try {
+      await db.run(commands[i]);
+    } catch (err) {
       callbacks[i](err);
-    });
+    }
   }
 }
