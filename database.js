@@ -65,10 +65,9 @@ db.serialize(function() {
  * @param {number} index the index at which to start the commands
  */
 function doCommandsFrom(index) {
-  if(index < commands.length) {
-    db.run(commands[index], function(err) {
-      callbacks[index](err);
-      doCommandsFrom(index + 1);
-    });
-  }
+    for (let i = index; i < commands.lengh; i++){
+        db.run(commands[i], function(err) {
+          await callbacks[i](err);
+        });
+    }
 }
