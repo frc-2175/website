@@ -71,7 +71,3 @@ typings/
 
 # Serverless directories
 .serverless
-
-# database files
-database
-token-key
