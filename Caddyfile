@@ -12,3 +12,6 @@ benkins.fightingcalculators.org {
   proxy / localhost:8080
 }
 
+scout.fightingcalculators.org {
+	redir https://scout-b39c0.web.app/
+}
