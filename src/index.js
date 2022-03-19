@@ -67,8 +67,8 @@ app.get('/team-organization/marketing-and-imagery', (req, res) => {
     res.render('subteams/marketing-and-imagery.html');
 });
 
-app.get('/team-organization/media-and-online-presence', (req, res) => {
-    res.render('subteams/media-and-online-presence.html');
+app.get('/team-organization/website-and-online-presence', (req, res) => {
+    res.render('subteams/website-and-online-presence.html');
 });
 
 app.get('/team-organization/outreach', (req, res) => {
