@@ -79,6 +79,9 @@ app.get('/team-organization/scouting-and-strategy', (req, res) => {
     res.render('subteams/scouting-and-strategy.html');
 });
 
+app.get('/team-organization/safety', (req, res) => {
+    res.render('subteams/safety.html');
+});
 app.get('/past-robots', (req, res) => {
     res.render('past-robots.html');
 });
