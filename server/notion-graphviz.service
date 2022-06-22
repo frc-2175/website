@@ -1,0 +1,10 @@
+[Unit]
+Description=it graphs the notion
+
+[Service]
+ExecStart=/home/ubuntu/.nvm/versions/node/v16.15.1/bin/node /home/ubuntu/notion-graphviz index.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

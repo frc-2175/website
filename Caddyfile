@@ -12,6 +12,11 @@ benkins.fightingcalculators.org {
   proxy / localhost:8080
 }
 
+notiongraph.fightingcalculators.org {
+  root /home/ubuntu/notion-graphviz
+  proxy / localhost:8585
+}
+
 scout.fightingcalculators.org {
 	redir https://scout-b39c0.web.app/
 }
