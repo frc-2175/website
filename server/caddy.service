@@ -1,8 +1,19 @@
 [Unit]
 Description=it runs caddy
+Documentation=https://caddyserver.com/docs/
+After=network.target network-online.target
+Requires=network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/caddy -conf /home/ubuntu/website/Caddyfile
+Type=notify
+ExecStart=/usr/local/bin/caddy run --config /home/ubuntu/website/Caddyfile
+ExecReload=/usr/local/bin/caddy reload --config /home/ubuntu/website/Caddyfile --force
+TimeoutStopSec=5s
+LimitNOFILE=1048576
+LimitNPROC=512
+PrivateTmp=true
+ProtectSystem=full
+AmbientCapabilities=CAP_NET_BIND_SERVICE
 
 [Install]
 WantedBy=multi-user.target

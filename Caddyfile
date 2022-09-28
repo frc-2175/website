@@ -1,20 +1,20 @@
 fightingcalculators.org {
-  root /home/ubuntu/website
-  proxy / localhost:2175
+	root /home/ubuntu/website
+	reverse_proxy localhost:2175
 }
 
 www.fightingcalculators.org {
-  redir https://fightingcalculators.org{uri}
+	redir https://fightingcalculators.org{uri}
 }
 
 benkins.fightingcalculators.org {
-  root /home/ubuntu/benkins-root
-  proxy / localhost:8080
+	root /home/ubuntu/benkins-root
+	reverse_proxy localhost:8080
 }
 
 notiongraph.fightingcalculators.org {
-  root /home/ubuntu/notion-graphviz
-  proxy / localhost:8585
+	root /home/ubuntu/notion-graphviz
+	reverse_proxy localhost:8585
 }
 
 scout.fightingcalculators.org {
@@ -23,5 +23,13 @@ scout.fightingcalculators.org {
 
 notion.fightingcalculators.org {
 	redir https://bvisness.notion.site/2023-Season-18c872fda83d423095429c09d1cf4fe1
+}
+
+ical.fightingcalculators.org {
+	reverse_proxy https://calendar.google.com/calendar/ical/2175.first%40gmail.com/public/basic.ics
+}
+
+gcal.fightingcalculators.org {
+	redir https://calendar.google.com/calendar/embed?src=2175.first%40gmail.com&ctz=America%2FChicago
 }
 
