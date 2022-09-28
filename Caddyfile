@@ -20,3 +20,8 @@ notiongraph.fightingcalculators.org {
 scout.fightingcalculators.org {
 	redir https://scout-b39c0.web.app/
 }
+
+notion.fightingcalculators.org {
+	redir https://bvisness.notion.site/2023-Season-18c872fda83d423095429c09d1cf4fe1
+}
+
