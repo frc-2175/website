@@ -1,5 +1,5 @@
 fightingcalculators.org {
-	root /home/ubuntu/website
+	root * /home/ubuntu/website
 	reverse_proxy localhost:2175
 }
 
@@ -8,12 +8,12 @@ www.fightingcalculators.org {
 }
 
 benkins.fightingcalculators.org {
-	root /home/ubuntu/benkins-root
+	root * /home/ubuntu/benkins-root
 	reverse_proxy localhost:8080
 }
 
 notiongraph.fightingcalculators.org {
-	root /home/ubuntu/notion-graphviz
+	root * /home/ubuntu/notion-graphviz
 	reverse_proxy localhost:8585
 }
 
