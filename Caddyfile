@@ -26,7 +26,7 @@ notion.fightingcalculators.org {
 }
 
 ical.fightingcalculators.org {
-	reverse_proxy https://calendar.google.com/calendar/ical/2175.first%40gmail.com/public/basic.ics
+	redir https://calendar.google.com/calendar/ical/2175.first%40gmail.com/public/basic.ics
 }
 
 gcal.fightingcalculators.org {
