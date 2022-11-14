@@ -1,10 +1,16 @@
 fightingcalculators.org {
-	root * /home/ubuntu/website
-	reverse_proxy localhost:2175
+	root * /home/ubuntu/wordpress
+	php_fastcgi unix//run/php/php8.2-fpm.sock
+	file_server
 }
 
 www.fightingcalculators.org {
-	redir https://fightingcalculators.org{uri}
+    redir https://fightingcalculators.org{uri}
+}
+
+node.fightingcalculators.org {
+	root * /home/ubuntu/website
+	reverse_proxy localhost:2175
 }
 
 benkins.fightingcalculators.org {
@@ -32,4 +38,3 @@ ical.fightingcalculators.org {
 gcal.fightingcalculators.org {
 	redir https://calendar.google.com/calendar/embed?src=2175.first%40gmail.com&ctz=America%2FChicago
 }
-

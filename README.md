@@ -1,5 +1,7 @@
 # FRC 2175 Website
 
+**NOTE:** This codebase is now defunct.
+
 The team's website, hosted at https://fightingcalculators.org/. This version of the site is written in NodeJS.
 
 ## A Guide to Doing Stuff
