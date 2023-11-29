@@ -1,11 +1,9 @@
 fightingcalculators.org {
-	root * /home/ubuntu/wordpress
-	php_fastcgi unix//run/php/php8.2-fpm.sock
-	file_server
+	redir https://www.msarobotics.org{uri} permanent
 }
 
 www.fightingcalculators.org {
-    redir https://fightingcalculators.org{uri}
+	redir https://www.msarobotics.org{uri} permanent
 }
 
 node.fightingcalculators.org {
